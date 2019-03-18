@@ -16,8 +16,8 @@ public class Voto {
 		return votazione;
 	}
 	
-	public void setVoto(int voto) {
-		this.votazione = voto;
+	public void setVotazione(int votazione) {
+		this.votazione = votazione;
 	}
 	
 	public String getCorso() {

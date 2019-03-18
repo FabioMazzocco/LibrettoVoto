@@ -18,14 +18,11 @@ public class Libretto {
 		voti.add(v);
 	}
 	
-//	public String toString() {
-//		return voti.toString() ;
-//	}
 	
 	/**
 	 * Seleziona il sottoinsieme di voti con la votazione passata
 	 * @param votazione votazione da ricercare tra gli esami presenti
-	 * @return lista di [@link Voto} aventi la votazione cercata (eventualmente vuota)
+	 * @return lista di {@link Voto} aventi la votazione cercata (eventualmente vuota)
 	 */
 	public List<Voto> cercaVoti(int votazione) {
 		List<Voto> lista = new ArrayList<Voto>();
@@ -35,6 +32,18 @@ public class Libretto {
 				lista.add(v);
 		
 		return lista;
+	}
+	
+	/**
+	 * Trova l'oggetto Voto con il nome passato come parametro
+	 * @param corso Stringa con il nome del corso da cercare
+	 * @return l'oggetto di tipo {@link Voto} con il nome del corso cercato (oppure null se non è presente)
+	 */
+	public Voto cercaCorso(String corso) {
+		for(Voto v : voti)
+			if(v.getCorso().equals(corso))
+				return v;
+		return null;
 	}
 	
 	

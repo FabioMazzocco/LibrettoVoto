@@ -21,6 +21,13 @@ public class TestLibretto {
 		
 		List<Voto> trenta = l.cercaVoti(30) ;
 		System.out.println(trenta) ;
+		
+		Voto a1 = l.cercaCorso("Analisi I");
+		Voto a3 = l.cercaCorso("Analisi III");
+		if(a1 != null)
+			System.out.println("Voto Analisi I: " +a1.getVotazione());
+		if(a3 != null)
+			System.out.println("Voto Analisi III: "+ a3.getVotazione());
 	}
 
 }
