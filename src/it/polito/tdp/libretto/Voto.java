@@ -36,5 +36,8 @@ public class Voto {
 		this.data = data;
 	}
 	
+	public String toString() {
+		return corso+" "+voto+" "+data.toString();
+	}
 	
 }
