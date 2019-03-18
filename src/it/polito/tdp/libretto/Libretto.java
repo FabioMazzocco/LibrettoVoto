@@ -19,8 +19,18 @@ public class Libretto {
 	}
 	
 //	public String toString() {
-//		return voti.toString();
+//		return voti.toString() ;
 //	}
+	
+	public List<Voto> cercaVoti(int votazione) {
+		List<Voto> lista = new ArrayList<Voto>() ;
+	
+		for(Voto v : voti)
+			if(v.getVotazione() == votazione)
+				lista.add(v) ;
+		
+		return lista ;
+	}
 	
 	
 	
