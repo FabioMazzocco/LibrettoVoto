@@ -46,6 +46,16 @@ public class Libretto {
 		return null;
 	}
 	
-	
+	/**
+	 * Dato un voto, controlla se esiste già un voto con uguale corso ed uguale punteggio
+	 * @param nuovoVoto il {@link Voto} che viene cercato nella lista già presente 
+	 * @return true se c'è, false se non è ancora presente
+	 */
+	public boolean esisteGiaVoto(Voto nuovoVoto) {
+		for(Voto v : voti)
+			if(v.equals(nuovoVoto))
+				return true;
+		return false;
+	}
 	
 }
