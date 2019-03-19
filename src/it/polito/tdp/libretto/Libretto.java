@@ -40,23 +40,47 @@ public class Libretto {
 	 * @return l'oggetto di tipo {@link Voto} con il nome del corso cercato (oppure null se non è presente)
 	 */
 	public Voto cercaCorso(String corso) {
+		/*
+		 * Va bene quello fatto sotto, ma non ce n'è bisogno, è un'operazione già definita da list.indexOf()
+		 * 
 		for(Voto v : voti)
 			if(v.getCorso().equals(corso))
 				return v;
 		return null;
+		*
+		*Allora posso fare un'altra cosa: cerco il voto (oggetto) come Voto parzialmente costruito
+		*ma serve solo come criterio di ricerca, perchè controllerà solo il nome esame (corso) perchè
+		*confronta tramite il metodo equals che abbiamo implementato
+		*/
+		Voto voto = new Voto(0, corso, null);
+		int pos = this.voti.indexOf(voto);
+		if(pos== -1)
+			return null;
+		return voti.get(pos);
 	}
 	
 	/**
 	 * Dato un voto, controlla se esiste già un voto con uguale corso ed uguale punteggio
-	 * @param nuovoVoto il {@link Voto} che viene cercato nella lista già presente 
+	 * @param v il {@link Voto} che viene cercato nella lista già presente 
 	 * @return {@code true} se c'è, {@code false} se non è ancora presente
 	 */
-	public boolean esisteGiaVoto(Voto nuovoVoto) {
-		for(Voto v : voti)
-			if(v.equals(nuovoVoto))
-				if(v.getVotazione() == nuovoVoto.getVotazione())
-					return true;
+	public boolean esisteGiaVoto(Voto v) {
+		int pos = this.voti.indexOf(v);
+		if(pos == -1)
+			return false;
+		if(v.getVotazione() == this.voti.get(pos).getVotazione())
+			return true;
 		return false;
+		
+		/*
+		 * Si, ma inutile andare a chiamare tutte queste cose quando è più semplice la versione sopra
+		Voto trovato = this.cercaCorso(v.getCorso());
+		if(trovato == null)
+			return false;
+		if(trovato.getVotazione() == v.getVotazione())
+			return true;
+		return false;
+		*/
 	}
 	
 }
