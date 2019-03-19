@@ -30,12 +30,21 @@ public class TestLibretto {
 			System.out.println("Voto Analisi III: "+ a3.getVotazione());
 		
 		Voto giusto = new Voto(26, "Algebra lineare e Geometria", LocalDate.now());
-		Voto sbagliato = new Voto(18, "Geometria", LocalDate.now());
+		Voto sbagliato = new Voto(18, "Algebra lineare e Geometria", LocalDate.now());
 		Voto inesistente = new Voto(30, "Merendine", LocalDate.now());
 		System.out.format("Il voto %s è %s\n", giusto.toString(), l.esisteGiaVoto(giusto));
 		System.out.format("Il voto %s è %s\n", sbagliato.toString(), l.esisteGiaVoto(sbagliato));
-		System.out.format("Il voto %s è %s\n", inesistente.toString(), l.esisteGiaVoto(inesistente));
+		System.out.format("Il voto %s è %s\n\n", inesistente.toString(), l.esisteGiaVoto(inesistente));
 		
+		System.out.format("Il voto %s è in conflitto? %s\n", giusto.toString(), l.votoConflitto(giusto));
+		System.out.format("Il voto %s è in conflitto? %s\n", sbagliato.toString(), l.votoConflitto(sbagliato));
+		System.out.format("Il voto %s è in conflitto? %s\n", inesistente.toString(), l.votoConflitto(inesistente));
+		
+		l.add(giusto);
+		l.add(sbagliato);
+		l.add(inesistente);
+		
+		System.out.println(l.toString());
 	}
 
 }
